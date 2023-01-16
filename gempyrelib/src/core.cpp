@@ -825,6 +825,8 @@ void Ui::eventLoop(bool is_main) {
                 GempyreUtils::log(GempyreUtils::LogLevel::Debug, "Cannot find", it.element, "from elements");
             }
         }
+        using namespace std::literals::chrono_literals;
+        std::this_thread::sleep_for(700us);
     }
     GEM_DEBUG("Eventloop exit");
 }
