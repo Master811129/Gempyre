@@ -826,7 +826,12 @@ void Ui::eventLoop(bool is_main) {
             }
         }
         using namespace std::literals::chrono_literals;
+#if defined(_WIN32)
+#pragma message("32-bit windows")
+        std::this_thread::sleep_for(1ms);
+#else
         std::this_thread::sleep_for(700us);
+#endif
     }
     GEM_DEBUG("Eventloop exit");
 }
