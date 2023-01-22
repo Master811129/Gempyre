@@ -11,11 +11,11 @@ mkdir -p build
 
 pushd build
 
-cmake ..  -DCMAKE_BUILD_TYPE=Debug -DHAS_AFFILIATES=OFF -DHAS_TEST=OFF -DHAS_EXAMPLES=OFF
+cmake ..  -DCMAKE_BUILD_TYPE=Debug -DHAS_AFFILIATES=ON -DHAS_TEST=OFF -DHAS_EXAMPLES=ON -DUSE_PYTHON_UI=ON
 cmake --build . --config Debug
 sudo cmake --install . --config Debug
 
-cmake ..  -DCMAKE_BUILD_TYPE=Release -DHAS_AFFILIATES=OFF -DHAS_TEST=OFF -DHAS_EXAMPLES=OFF
+cmake ..  -DCMAKE_BUILD_TYPE=Release -DHAS_AFFILIATES=ON -DHAS_TEST=OFF -DHAS_EXAMPLES=ON -DUSE_PYTHON_UI=ON
 cmake --build . --config Release
 sudo cmake --install . --config Release
 

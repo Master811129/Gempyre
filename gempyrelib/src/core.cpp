@@ -175,8 +175,11 @@ static std::tuple<std::string, std::string> guiCmdLine(const std::string& indexH
         if(conf)
             return conf.value();
 #ifdef USE_PYTHON_UI
+#pragma message("Using Python Webview as default UI instead of system browser.")
+        GempyreUtils::log(GempyreUtils::LogLevel::Debug, "Attempting to use python UI...");
         const auto py3 = python3();
         if(py3) {
+            GempyreUtils::log(GempyreUtils::LogLevel::Debug, "An available python interpreter is detected in " + py3.value());
             constexpr auto py_file = "/pyclient.py"; // let's not use definion in gempyrejsh as that may not be there
             const auto py_data = Gempyrejsh.find(py_file);
             if(py_data != Gempyrejsh.end()) {
@@ -193,6 +196,8 @@ static std::tuple<std::string, std::string> guiCmdLine(const std::string& indexH
                                      join(param_map, BROWSER_PARAMS_KEY,"--gempyre-extra=")}, " ") };
             }
         }
+#else
+#pragma message("Using system browser as default UI.")
 #endif
     }
 
