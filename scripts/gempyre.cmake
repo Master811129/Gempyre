@@ -21,7 +21,8 @@ function (gempyre_add_resources)
     endif()
 
     set(PYTHON3 ${PYTHON3} PARENT_SCOPE)
-
+    message ("finding gempyre from these directories scripts to build its resources:")
+    message("${GEMPYRE_FUNCTION_DIR}" "${CMAKE_SOURCE_DIR}/scripts" "${CMAKE_CURRENT_LIST_DIR}")
     find_file(GEN_RESOURCE
         genStringResource.py
         PATHS "${GEMPYRE_FUNCTION_DIR}" "${CMAKE_SOURCE_DIR}/scripts" "${CMAKE_CURRENT_LIST_DIR}"
