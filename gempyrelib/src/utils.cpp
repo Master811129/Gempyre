@@ -101,12 +101,12 @@ void GempyreUtils::init() {
 std::string GempyreUtils::toStr(LogLevel l) {
     const std::unordered_map<LogLevel, std::string> m = {
         {LogLevel::None, "NONE"},
-        {LogLevel::Error, "ERROR"},
-        {LogLevel::Warning, "WARNING"},
-        {LogLevel::Info, "INFO"},
-        {LogLevel::Debug, "DEBUG"},
-        {LogLevel::Fatal, "FATAL"},
-        {LogLevel::Debug_Trace, "TRACE"}
+        {LogLevel::Error, "\e[1;31mERROR\e[0m"},
+        {LogLevel::Warning, "\e[1;48:5:166mWARNING\e[0m"},
+        {LogLevel::Info, "\e[0;106m\e[1;90mINFO\e[0m"},
+        {LogLevel::Debug, "\e[0;103m\e[1;90mDEBUG\e[0m"},
+        {LogLevel::Fatal, "\e[4;31mFATAL\e[0m"},
+        {LogLevel::Debug_Trace, "\e[0;103m\e[1;90mTRACE\e[0m"}
     };
     return m.at(l);
 }
